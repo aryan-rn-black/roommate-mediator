@@ -164,3 +164,9 @@ The playground will open at **http://localhost:18081**.
 
 ### Architecture Workflow Diagram
 ![Architecture Workflow Diagram](assets/architecture_diagram.png)
+
+---
+
+## Demo Script
+
+A narrated presentation script for the live demo is available in [DEMO_SCRIPT.txt](file:///d:/AI-agent/adk-worksspace/roommate-mediator/DEMO_SCRIPT.txt).

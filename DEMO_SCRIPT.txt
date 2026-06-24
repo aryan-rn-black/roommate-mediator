@@ -1,0 +1,26 @@
+[0:00 — HOOK]
+We all know that living with roommates can be amazing, but trying to split bills, agree on chores, and address house rules can quickly turn friendships into awkward standoffs. I built Roommate Mediator to act as an objective, automated concierge that handles all these sensitive household details for you.
+
+[0:20 — WHAT IT IS]
+Roommate Mediator is a multi-agent system designed for the Concierge Agents track. It mediates roommate balances, organizes schedules, audits rules, and even drafts polite payment requests so you never have to have that awkward talk.
+
+[0:40 — SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on our cover banner, this is an automated, secure, and intelligent roommate concierge designed to split costs, manage chores, and check house rules seamlessly. (pause)
+
+[1:00 — ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's walk through how this works under the hood. All queries enter through our START node and go straight to the Security Checkpoint, which automatically blocks prompt injections, caps large entries, and scrubs sensitive personal data. If it is safe, the query is passed to our main Orchestrator Agent. The orchestrator analyzes the request and delegates it via an AgentTool to either the Expense Reconciler or the Chore Mediator. Both sub-agents connect to our local MCP Server, which reads house rules from a text file and persists balances in a JSON database. If the orchestrator drafts a message meant for another roommate, it flags the request, prompting the user via our Human-in-the-loop approval node. The user can approve the message with a simple "yes" or ask for a softer rewrite, which routes the request back to the orchestrator to redraft. (pause)
+
+[2:00 — LIVE DEMO]
+(switch to playground at localhost:18081)
+Let me show you a live demonstration.
+First, if I ask the agent to "Split a dinner bill of $90 paid by Alice", the request is passed through the security checkpoint to the Expense Reconciler. It calls the log_expense MCP tool, which splits the cost three ways, adds $30.00 to Bob and Charlie's debts, and outputs the updated balances. (pause)
+Second, if I type "Rotate chores for the new week", the orchestrator delegates to the Chore Mediator. The mediator calls the rotate_chores tool to shift everyone's chore assignments (like empty kitchen trash or clean the bathroom) to ensure equal work. (pause)
+Third, if I say "Draft a reminder message for Bob to pay Alice $30", the reconciler drafts the reminder, attaches a Venmo link, and sets off the needs_approval flag. As you can see on screen, the playground halts with a prompt: "✋ HUMAN-IN-THE-LOOP APPROVAL REQUIRED... Do you approve sending this?". I can type "yes" to approve it, or describe revisions to get a softer draft.
+
+[3:00 — SECURITY & MCP]
+Security is paramount when handling personal finances, which is why our checkpoint node automatically scrubs emails, phone numbers, and credit cards before they reach the model. The custom MCP server provides us with 8 local tools, directly interacting with our persistent roommate database and house policies files.
+
+[3:30 — IMPACT / CLOSE]
+Roommate Mediator takes the friction out of shared living. It ensures clean accounting, fair chore splits, and neutral rule moderation so you can enjoy living together without personal conflict. Thank you.
