@@ -154,3 +154,13 @@ The playground will open at **http://localhost:18081**.
    ```
 
 ⚠ NEVER push .env to GitHub. Your API key will be exposed publicly.
+
+---
+
+## Assets
+
+### Cover Page Banner
+![Cover Page Banner](assets/cover_page_banner.png)
+
+### Architecture Workflow Diagram
+![Architecture Workflow Diagram](assets/architecture_diagram.png)
