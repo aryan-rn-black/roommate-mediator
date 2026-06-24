@@ -1,0 +1,29 @@
+{
+  "balances": {
+    "Alice": 120.0,
+    "Bob": -60.0,
+    "Charlie": -60.0
+  },
+  "chores": [
+    {
+      "chore": "Empty kitchen trash",
+      "assigned_to": "Alice",
+      "completed": false
+    },
+    {
+      "chore": "Clean the bathroom",
+      "assigned_to": "Bob",
+      "completed": false
+    },
+    {
+      "chore": "Sweep the living room",
+      "assigned_to": "Charlie",
+      "completed": false
+    },
+    {
+      "chore": "Wash common dishes",
+      "assigned_to": "Alice",
+      "completed": true
+    }
+  ]
+}
